@@ -1,0 +1,22 @@
+[profile.default]
+src = 'contracts'
+out = 'out'
+libs = ['node_modules', 'lib']
+test = 'testFoundry'
+cache_path  = 'cache_forge'
+solc_version = "0.8.20"
+build_info = true
+extra_output = ["storageLayout"]
+
+
+
+remappings = [
+    '@openzeppelin/contracts/=lib/openzeppelin-contracts-upgradeable/lib/openzeppelin-contracts/contracts/',
+    '@openzeppelin/contracts-upgradeable/=lib/openzeppelin-contracts-upgradeable/contracts/',
+]
+
+
+
+
+
+
