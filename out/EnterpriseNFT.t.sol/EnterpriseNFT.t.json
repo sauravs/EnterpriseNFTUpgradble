@@ -1,0 +1,19 @@
+{
+  "abi": [],
+  "bytecode": {
+    "object": "0x",
+    "linkReferences": {}
+  },
+  "deployedBytecode": {
+    "object": "0x",
+    "linkReferences": {}
+  },
+  "ast": {
+    "absolutePath": "testFoundry/EnterpriseNFT.t.sol",
+    "id": 3,
+    "exportedSymbols": {},
+    "nodeType": "SourceUnit",
+    "src": "1672:0:2"
+  },
+  "id": 2
+}

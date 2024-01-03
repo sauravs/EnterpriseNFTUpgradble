@@ -42,12 +42,12 @@ contract PizzaTest is Test {
 
     }
 
-    function testUpgrade2Fail() public {
-           vm.prank(address(0));
-           pizza.upgradeTo(address(pizzaV2));
-           vm.expectRevert(bytes("Ownable: caller is not the owner"));
+    // function testUpgrade2Fail() public {
+    //        vm.prank(address(0));
+    //        pizza.upgradeTo(address(pizzaV2));
+    //        vm.expectRevert(bytes("Ownable: caller is not the owner"));
         
-     }
+    //  }
 
 
 

@@ -1,0 +1,144 @@
+{
+  "_format": "ethers-rs-sol-build-info-1",
+  "solcVersion": "0.8.20",
+  "solcLongVersion": "0.8.20+commit.a1b79de6.Windows.msvc",
+  "input": {
+    "language": "Solidity",
+    "sources": {
+      "contracts/EnterpriseNFT.sol": {
+        "content": "// // SPDX-License-Identifier: MIT\r\n// pragma solidity ^0.8.20;\r\n\r\n// import \"@openzeppelin/contracts-upgradeable/token/ERC721/ERC721Upgradeable.sol\";\r\n// import \"@openzeppelin/contracts-upgradeable/token/ERC721/extensions/ERC721URIStorageUpgradeable.sol\";\r\n// import \"@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol\";\r\n// import \"@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol\";\r\n// import \"@openzeppelin/contracts-upgradeable/proxy/utils/UUPSUpgradeable.sol\";\r\n\r\n// contract EnterpriseNFT is Initializable, ERC721Upgradeable, ERC721URIStorageUpgradeable, OwnableUpgradeable, UUPSUpgradeable {\r\n//     uint256 private _nextTokenId;\r\n\r\n//     /// @custom:oz-upgrades-unsafe-allow constructor\r\n//     constructor() {\r\n//         _disableInitializers();\r\n//     }\r\n\r\n//     function initialize(address initialOwner) initializer public {\r\n//         __ERC721_init(\"MyToken\", \"MTK\");\r\n//         __ERC721URIStorage_init();\r\n//         __Ownable_init(initialOwner);\r\n//         __UUPSUpgradeable_init();\r\n//     }\r\n\r\n//     function safeMint(address to, string memory uri) public onlyOwner {\r\n//         uint256 tokenId = _nextTokenId++;\r\n//         _safeMint(to, tokenId);\r\n//         _setTokenURI(tokenId, uri);\r\n//     }\r\n\r\n//     function _authorizeUpgrade(address newImplementation)\r\n//         internal\r\n//         onlyOwner\r\n//         override\r\n//     {}\r\n\r\n//    function upgradeTo(address newImplementation) external {\r\n    \r\n//     }\r\n\r\n   \r\n//     // The following functions are overrides required by Solidity.\r\n\r\n//     function tokenURI(uint256 tokenId)\r\n//         public\r\n//         view\r\n//         override(ERC721Upgradeable, ERC721URIStorageUpgradeable)\r\n//         returns (string memory)\r\n//         {\r\n//             return super.tokenURI(tokenId);\r\n//         }\r\n\r\n//         function supportsInterface(bytes4 interfaceId)\r\n//             public\r\n//             view\r\n//             override(ERC721Upgradeable, ERC721URIStorageUpgradeable)\r\n//             returns (bool)\r\n//         {\r\n//             return super.supportsInterface(interfaceId);\r\n//         }\r\n\r\n//         function totalSupply() public view returns (uint256) {\r\n//             return _nextTokenId;\r\n//         }\r\n//     }\r\n"
+      },
+      "contracts/EnterpriseNFTV2.sol": {
+        "content": "// // SPDX-License-Identifier: MIT\r\n// pragma solidity ^0.8.20;\r\n\r\n// import {EnterpriseNFT} from \"./EnterpriseNFT.sol\";\r\n\r\n\r\n// contract EnterpriseNFTV2 is EnterpriseNFT { \r\n\r\n//     function EnterpriseNFTVVersion() external pure returns (uint256)  {\r\n//     return 2;\r\n//    }\r\n\r\n\r\n// }\r\n\r\n\r\n"
+      },
+      "testFoundry/EnterpriseNFT.t.sol": {
+        "content": "\r\n// import \"forge-std/Test.sol\";\r\n// import \"forge-std/console.sol\";\r\n\r\n// //import \"@openzeppelin/contracts/proxy/ERC1967/ERC1967Proxy.sol\";\r\n\r\n// // import upgrade from  openzeppelin-foundry-upgrades\r\n// import \"openzeppelin-foundry-upgrades/Upgrades.sol\";\r\n\r\n\r\n// import \"../contracts/EnterpriseNFT.sol\";\r\n// import \"../contracts/EnterpriseNFTV2.sol\";\r\n\r\n\r\n// contract EnterpriseNFTTest is Test {\r\n\r\n//     EnterpriseNFT internal enterpriseNFT;\r\n//     EnterpriseNFTV2 internal enterpriseNFTV2;\r\n\r\n//     function setUp() public {\r\n    \r\n//     address proxy = Upgrades.deployUUPSProxy(\r\n//     \"EnterpriseNFT.sol\",\r\n//     abi.encodeCall(EnterpriseNFT.initialize, (address(this)))\r\n// );\r\n\r\n//    console.log(\"proxy address: %s\", proxy);\r\n       \r\n//     }\r\n\r\n//     function testSafeMint() public {\r\n//         address to = address(0x1234); // Replace with a valid address\r\n//         string memory uri = \"https://example.com/my-nft\";\r\n\r\n//         assertEq(enterpriseNFT.totalSupply(), 0);\r\n//         enterpriseNFT.safeMint(to, uri);\r\n\r\n//         assertEq(enterpriseNFT.totalSupply(), 1);\r\n//         assertEq(enterpriseNFT.ownerOf(1), to);\r\n//         assertEq(enterpriseNFT.tokenURI(1), uri);\r\n//     }\r\n\r\n//     // Test _authorizeUpgrade() and upgradeTo()\r\n//     // function testUpgrade() public {\r\n//     //     address newImplementation = address(0x5678); // Replace with a valid address\r\n\r\n//     //     proxy.upgradeTo(newImplementation);\r\n\r\n//     //     // Assert successful upgrade (e.g., by checking contract's type or behavior)\r\n//     // }\r\n\r\n//     // Add more test cases for other functions and edge cases as needed\r\n// }\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n"
+      }
+    },
+    "settings": {
+      "remappings": [
+        "@openzeppelin/=node_modules/@openzeppelin/",
+        "ds-test/=lib/forge-std/lib/ds-test/src/",
+        "eth-gas-reporter/=node_modules/eth-gas-reporter/",
+        "forge-std/=lib/forge-std/src/",
+        "hardhat/=node_modules/hardhat/"
+      ],
+      "optimizer": {
+        "enabled": true,
+        "runs": 200
+      },
+      "metadata": {
+        "bytecodeHash": "ipfs"
+      },
+      "outputSelection": {
+        "*": {
+          "": [
+            "ast"
+          ],
+          "*": [
+            "abi",
+            "evm.bytecode",
+            "evm.deployedBytecode",
+            "evm.methodIdentifiers",
+            "metadata",
+            "storageLayout"
+          ]
+        }
+      },
+      "evmVersion": "london",
+      "libraries": {}
+    }
+  },
+  "id": "d2a74ea880c25b51e7957de919a738ac",
+  "output": {
+    "errors": [
+      {
+        "sourceLocation": {
+          "file": "testFoundry/EnterpriseNFT.t.sol",
+          "start": -1,
+          "end": -1
+        },
+        "type": "Warning",
+        "component": "general",
+        "severity": "warning",
+        "errorCode": "1878",
+        "message": "SPDX license identifier not provided in source file. Before publishing, consider adding a comment containing \"SPDX-License-Identifier: <SPDX-License>\" to each source file. Use \"SPDX-License-Identifier: UNLICENSED\" for non-open-source code. Please see https://spdx.org for more information.",
+        "formattedMessage": "Warning: SPDX license identifier not provided in source file. Before publishing, consider adding a comment containing \"SPDX-License-Identifier: <SPDX-License>\" to each source file. Use \"SPDX-License-Identifier: UNLICENSED\" for non-open-source code. Please see https://spdx.org for more information.\n--> testFoundry/EnterpriseNFT.t.sol\n\n"
+      },
+      {
+        "sourceLocation": {
+          "file": "contracts/EnterpriseNFT.sol",
+          "start": -1,
+          "end": -1
+        },
+        "type": "Warning",
+        "component": "general",
+        "severity": "warning",
+        "errorCode": "3420",
+        "message": "Source file does not specify required compiler version! Consider adding \"pragma solidity ^0.8.20;\"",
+        "formattedMessage": "Warning: Source file does not specify required compiler version! Consider adding \"pragma solidity ^0.8.20;\"\n--> contracts/EnterpriseNFT.sol\n\n"
+      },
+      {
+        "sourceLocation": {
+          "file": "contracts/EnterpriseNFTV2.sol",
+          "start": -1,
+          "end": -1
+        },
+        "type": "Warning",
+        "component": "general",
+        "severity": "warning",
+        "errorCode": "3420",
+        "message": "Source file does not specify required compiler version! Consider adding \"pragma solidity ^0.8.20;\"",
+        "formattedMessage": "Warning: Source file does not specify required compiler version! Consider adding \"pragma solidity ^0.8.20;\"\n--> contracts/EnterpriseNFTV2.sol\n\n"
+      },
+      {
+        "sourceLocation": {
+          "file": "testFoundry/EnterpriseNFT.t.sol",
+          "start": -1,
+          "end": -1
+        },
+        "type": "Warning",
+        "component": "general",
+        "severity": "warning",
+        "errorCode": "3420",
+        "message": "Source file does not specify required compiler version! Consider adding \"pragma solidity ^0.8.20;\"",
+        "formattedMessage": "Warning: Source file does not specify required compiler version! Consider adding \"pragma solidity ^0.8.20;\"\n--> testFoundry/EnterpriseNFT.t.sol\n\n"
+      }
+    ],
+    "sources": {
+      "contracts/EnterpriseNFT.sol": {
+        "id": 0,
+        "ast": {
+          "absolutePath": "contracts/EnterpriseNFT.sol",
+          "id": 1,
+          "exportedSymbols": {},
+          "nodeType": "SourceUnit",
+          "src": "2246:0:0",
+          "license": "MIT"
+        }
+      },
+      "contracts/EnterpriseNFTV2.sol": {
+        "id": 1,
+        "ast": {
+          "absolutePath": "contracts/EnterpriseNFTV2.sol",
+          "id": 2,
+          "exportedSymbols": {},
+          "nodeType": "SourceUnit",
+          "src": "294:0:1",
+          "license": "MIT"
+        }
+      },
+      "testFoundry/EnterpriseNFT.t.sol": {
+        "id": 2,
+        "ast": {
+          "absolutePath": "testFoundry/EnterpriseNFT.t.sol",
+          "id": 3,
+          "exportedSymbols": {},
+          "nodeType": "SourceUnit",
+          "src": "1672:0:2"
+        }
+      }
+    },
+    "contracts": {}
+  }
+}

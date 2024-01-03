@@ -1,0 +1,20 @@
+{
+  "abi": [],
+  "bytecode": {
+    "object": "0x",
+    "linkReferences": {}
+  },
+  "deployedBytecode": {
+    "object": "0x",
+    "linkReferences": {}
+  },
+  "ast": {
+    "absolutePath": "contracts/EnterpriseNFTV2.sol",
+    "id": 2,
+    "exportedSymbols": {},
+    "nodeType": "SourceUnit",
+    "src": "294:0:1",
+    "license": "MIT"
+  },
+  "id": 1
+}
